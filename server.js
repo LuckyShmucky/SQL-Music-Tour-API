@@ -27,14 +27,20 @@ let sequelize = new Sequelize({
     host: "127.0.0.1",
     dialect: "postgres"})
     
+    //creating and using bands controller
     const bandsController = require('./controllers/bands_controller')
     app.use('/bands', bandsController)
     
+    //creating and using events controller 
+    const eventsController = require('./controllers/events_controller')
+    app.use('/events', eventsController)
+
     // LISTEN
     app.listen(process.env.PORT, () => {
         console.log(`🎸 Rockin' on port: ${process.env.PORT}`)
     })
 
+    
 
 
     //Amanda's solution
