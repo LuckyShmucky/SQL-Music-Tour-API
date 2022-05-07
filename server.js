@@ -27,14 +27,19 @@ let sequelize = new Sequelize({
     host: "127.0.0.1",
     dialect: "postgres"})
     
+    const bandsController = require('./controllers/bands_controller')
+    app.use('/bands', bandsController)
     
+    // LISTEN
+    app.listen(process.env.PORT, () => {
+        console.log(`🎸 Rockin' on port: ${process.env.PORT}`)
+    })
+
+
+
     //Amanda's solution
     // const sequelize = new Sequelize(process.env.PG_URI, 'postgres', process.env.PG_PASSWORD, {
         //     username: 'postgres',
         //     host: 'localhost',
         //     dialect: 'postgres'
         // });
-// LISTEN
-app.listen(process.env.PORT, () => {
-    console.log(`🎸 Rockin' on port: ${process.env.PORT}`)
-})
