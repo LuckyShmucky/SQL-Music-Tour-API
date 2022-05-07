@@ -15,7 +15,11 @@ app.use(express.urlencoded({ extended: false }))
 //     dialect: 'postgres'
 //   })
 // ROOT
-
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: 'Welcome to the Tour API'
+    })
+})
 //Mike's solution
 let sequelize = new Sequelize({ 
     username: "postgres",

@@ -8,16 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      event_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       name: {
         type: Sequelize.STRING,
         allowNull: false
       },
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
       },
       start_time: {
@@ -27,15 +23,15 @@ module.exports = {
       end_time: {
         type: Sequelize.DATE,
         allowNull: false
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
+      // createdAt: {
+      //   allowNull: false,
+      //   type: Sequelize.DATE
+      // },
+      // updatedAt: {
+      //   allowNull: false,
+      //   type: Sequelize.DATE
+      // }
     });
   },
   async down(queryInterface, Sequelize) {
