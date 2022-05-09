@@ -8,19 +8,14 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// SEQUELIZE CONNECTION
-// const sequelize = new Sequelize(process.env.PG_URI)
-// const sequelize = new Sequelize(process.env.PG_URI, 'postgres', process.env.PG_PASSWORD, {
-//     host: 'localhost',
-//     dialect: 'postgres'
-//   })
-// ROOT
+
 app.get('/', (req, res) => {
     res.status(200).json({
         message: 'Welcome to the Tour API'
     })
 })
-//Mike's solution
+
+//connecting to postgres using sequelize
 let sequelize = new Sequelize({ 
     username: "postgres",
     password: process.env.PG_PASSWORD,
@@ -36,7 +31,7 @@ let sequelize = new Sequelize({
     app.use('/events', eventsController)
 
     const stagesController = require('./controllers/stages_controllers')
-    app.use('stages', stagesController)
+    app.use('/stages', stagesController)
     
 
     // LISTEN
